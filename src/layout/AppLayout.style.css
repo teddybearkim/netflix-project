@@ -1,0 +1,15 @@
+* {
+  background-color: #000;
+}
+
+.nav-list {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 35px 0 45px;
+}
+.nav-list:nth-child(2) {
+  margin-left: 0;
+}
+.nav-list:hover {
+  color: red;
+}
