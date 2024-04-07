@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 import AppLayout from './layout/AppLayout';
 import Homepage from './pages/Homepage/Homepage';
 import MovieDetailPage from './pages/MovieDetail/MovieDetailPage';
@@ -18,19 +18,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Homepage />} />
-          <Route path="movies">
-            <Route index element={<MoviePage />} />
-            <Route path=":id" element={<MovieDetailPage />} />
-          </Route>
+
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<Homepage />} />
+        <Route path="movies">
+          <Route index element={<MoviePage />} />
+          <Route path=":id" element={<MovieDetailPage />} />
         </Route>
-        
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+      </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+
   );
 }
 

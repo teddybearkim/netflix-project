@@ -1,4 +1,8 @@
-* {
+html{
+  background-color: #181819;
+}
+
+div{
   background-color: #000;
 }
 
@@ -7,9 +11,26 @@
   text-decoration: none;
   margin: 0 35px 0 45px;
 }
+.nav-list:hover {
+  border-radius: 3px;
+  background: rgb(250, 67, 97);
+}
 .nav-list:nth-child(2) {
   margin-left: 0;
 }
-.nav-list:hover {
-  color: red;
+.navbar-toggler-icon {
+  color: white;
+  background: gray;
+}
+.form-control {
+  background-color: #ed0808;
+  color: #fff; 
+  border-color: #f80404; 
+}
+.btn-outline-success {
+  color: red; 
+  border-color: red; 
+}
+.navContainer{
+  z-index: 2000;
 }
