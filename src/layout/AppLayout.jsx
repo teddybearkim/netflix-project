@@ -8,19 +8,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./AppLayout.style.css";
+<img src="/img/imgfile.png" />;
 
 const AppLayout = () => {
   return (
-    <div style={{background: 'black', color:'white'}}>
+    <div style={{ background: "black", color: "white" }}>
       <Navbar expand="lg" className="bg-dark">
         <Container fluid>
-          <Navbar.Brand href="#" className="hi">
+          <Navbar.Brand href="/">
             <img
-              width={100}
-              height={60}
-              alt="로고" 
-              src="https://images.ctfassets.net/4cd45et68cgf/4nBnsuPq03diC5eHXnQYx/d48a4664cdc48b6065b0be2d0c7bc388/Netflix-Logo.jpg"
-            ></img>
+              className="logo"
+              src="https://images.crowdspring.com/blog/wp-content/uploads/2016/06/27132348/netflix-new-logo.png"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -29,8 +28,9 @@ const AppLayout = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Link to = "/" className="nav-list">Home</Link>
-              <Link to = "Movies" className="nav-list">Link</Link>
+              <Nav.Link href="/" className="nav-list">Home</Nav.Link>
+              <Nav.Link className="nav-list">Movies</Nav.Link>
+              <Nav.Link href="/tvs" className="nav-list">TVs</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control

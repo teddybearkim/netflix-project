@@ -1,25 +1,39 @@
-.banner {
-  height: 56vh;
-  background-position: left;
-  background-repeat: no-repeat;
+.banner{
+  height: 70vh;
+  background-position: center;
   background-size: cover;
+  position: relative;
 }
-.banner::before {
-  content: '';
-  background: linear-gradient(to top, black, transparent);
-  position: absolute;
+
+.banner:before{
+  content:'';
+  background:linear-gradient(to top, black,transparent);
+  position:absolute;
   left: 0;
-  height: 56vh;
+  height: 70vh;
   width: 100%;
 }
-.banner-text-area {
-  width: 35%;
+
+.banner-text-area{
+  margin-left: 20px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding:2rem; 
+  background: none;
+  padding: 2rem;
 }
-.banner-text-area > * {
+.banner-title {
+  font-weight: bold;
+}
+.banner-text-area >*{
   z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .banner-text-area {
+    color: transparent;
+    opacity: 0;
+  }
 }

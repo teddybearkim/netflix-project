@@ -1,32 +1,30 @@
 import React from "react";
 import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 import Alert from "react-bootstrap/Alert";
-import Spinner from "react-bootstrap/Spinner";
 import "./Banner.style.css";
+import isLoadingSpinner from "../../../../ui/Spinner/isLoadingSpinner";
 
 const Banner = () => {
-  const { data, isLoading, isError, error } = usePopularMoviesQuery();
-
+  let { data, isLoading, isError, error } = usePopularMoviesQuery();
   if (isLoading) {
-    <Spinner animation="border" variant="danger" />;
+    return <div>{isLoadingSpinner()}</div>;
   }
   if (isError) {
-    <Alert variant="danger">{error.message}</Alert>;
+    return <Alert variant="danger">{error.message}</Alert>;
   }
+
+  const posterPath = data?.results[0].poster_path;
+  const imageUrl = `https://image.tmdb.org/t/p/original${posterPath}`;
+
   return (
-    <div
-      style={{
-        backgroundImage: 
-        "url(" +
-         `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${data?.results[0].poster_path}` + ")",
-      }}
-      className="banner"
-    >
-      <div className="text-white banner-text-area">
-        <h1>{data?.results[0].title}</h1>
-        <p>{data?.results[0].overview}</p>
+    <>
+      <div style={{ backgroundImage: `url(${imageUrl})` }} className="banner">
+        <div className="text-white banner-text-area">
+          <h1 className="banner-title">{data?.results[0].title}</h1>
+          <p className="banner-overview">{data?.results[0].overview}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
